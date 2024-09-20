@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { db } from '@/utils/db';
-import { MockVani } from '@/utils/schema';
+import { db } from '../../../../../utils/db';
+import { MockVani } from '../../../../../utils/schema';
 import { eq } from 'drizzle-orm';
 import QuestionsSection from './_components/QuestionsSection';
 import RecordAnswerSection from './_components/RecordAnswerSection';

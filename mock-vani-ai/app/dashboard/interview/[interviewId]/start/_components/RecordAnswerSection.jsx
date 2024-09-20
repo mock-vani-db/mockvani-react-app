@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
 import { Mic, WebcamIcon } from 'lucide-react';
-import { Button } from "@/components/ui/button";
+import { Button } from "../../../../../../components/ui/button";
 import useSpeechToText from 'react-hook-speech-to-text';
-import { useToast } from "@/hooks/use-toast";
-import { chatSession } from '@/utils/GeminiAIModel';
-import { db } from '@/utils/db';
-import { UserAnswers } from '@/utils/schema';
+import { useToast } from "../../../../../../hooks/use-toast";
+import { chatSession } from '../../../../../../utils/GeminiAIModel';
+import { db } from '../../../../../../utils/db';
+import { UserAnswers } from '../../../../../../utils/schema';
 import { useUser } from '@clerk/nextjs';
 import moment from 'moment';
 

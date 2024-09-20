@@ -7,14 +7,14 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { chatSession } from '@/utils/GeminiAIModel';  // Restored Google AI chat session
+} from "../../../components/ui/dialog";
+import { Button } from "../../../components/ui/button";
+import { Input } from "../../../components/ui/input";
+import { Textarea } from "../../../components/ui/textarea";
+import { chatSession } from '../../../utils/GeminiAIModel';  // Restored Google AI chat session
 import { LoaderCircle } from 'lucide-react';
-import { db } from '@/utils/db';
-import { MockVani } from '@/utils/schema';
+import { db } from '../../../utils/db';
+import { MockVani } from '../../../utils/schema';
 import { v4 as uuidv4 } from 'uuid';
 import { useUser } from '@clerk/nextjs';
 import moment from 'moment';

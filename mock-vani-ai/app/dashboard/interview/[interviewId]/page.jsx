@@ -8,12 +8,15 @@ import Webcam from "react-webcam";
 import { LoaderCircle, Lightbulb, WebcamIcon } from "lucide-react";
 import { Button } from "../../../../components/ui/button";
 import Link from "next/link";
+import InCallView from "./start/page";
+import { useRouter } from 'next/navigation'
 
 function Interview({ params }) {
   const [interviewData, setInterviewData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [webCamEnabled, setWebCamEnabled] = useState(false);
   const [webCamError, setWebCamError] = useState(false);
+  const router=useRouter();
 
   useEffect(() => {
     (async () => {
@@ -56,6 +59,10 @@ function Interview({ params }) {
     );
   }
 
+  const handleGoToInterview = (interviewId) => {
+    router.push(`/dashboard/interview/${interviewId}/start?interviewId=${interviewId}`);
+  };
+  
   return (
     <div className="container mx-auto my-10 px-4">
       <h2 className="font-bold text-3xl text-center mb-8">Let's Get Started</h2>
@@ -63,20 +70,20 @@ function Interview({ params }) {
         {/* Interview Info Section */}
         <div className="flex flex-col gap-6">
           <div className="flex flex-col p-6 rounded-lg border gap-4 shadow-lg bg-white">
-            <h2 className="text-xl font-semibold">
+            <h2 className="text-xl text-gray-500 font-semibold">
               <strong>Job Role/Job Position:</strong> {interviewData.jobPosition}
             </h2>
-            <h2 className="text-xl">
+            <h2 className="text-xl text-gray-500">
               <strong>Job Description/Skillset:</strong> {interviewData.jobDescription}
             </h2>
-            <h2 className="text-xl">
+            <h2 className="text-xl text-gray-500">
               <strong>Years of Experience:</strong> {interviewData.jobExperience}
             </h2>
           </div>
           <div className="p-6 border rounded-lg bg-yellow-100 shadow-md">
             <h2 className="flex gap-2 items-center text-xl font-semibold">
-              <Lightbulb className="text-yellow-500" />
-              <strong>Information</strong>
+              <Lightbulb className="text-yellow-600" />
+              <strong className="text-yellow-600">Information</strong>
             </h2>
             <p className="mt-4 text-gray-700">{process.env.NEXT_PUBLIC_INFORMATION}</p>
           </div>
@@ -105,7 +112,7 @@ function Interview({ params }) {
                 }}
               />
             ) : (
-              <WebcamIcon className="text-gray-400" size={64} />
+              <WebcamIcon className="text-gray-600" size={96} />
             )}
             {webCamError && (
               <p className="absolute bottom-0 mb-2 w-full text-center text-red-500">
@@ -118,22 +125,22 @@ function Interview({ params }) {
           <Button
             variant="outline"
             onClick={() => setWebCamEnabled(!webCamEnabled)}
-            className={`mt-2 ${
-              webCamEnabled
+            className={`mt-2 ${webCamEnabled
                 ? "text-red-500 border-red-500 hover:bg-red-500"
-                : "text-blue-500 border-blue-500 hover:bg-blue-500"
-            } hover:text-white transition-colors duration-300`}
+                : "bg-gray-800 text-gray-300 hover:bg-gray-400"
+              } hover:text-white transition-colors duration-300`}
           >
             {webCamEnabled ? "Disable" : "Enable"} Web Camera
           </Button>
 
           {/* Start Interview Button */}
           <div className="mt-6 w-full flex justify-end">
-            <Link href={`/dashboard/interview/${params.interviewId}/start`}>
-              <Button className="w-full md:w-auto bg-blue-500 text-white hover:bg-blue-700 transition-colors duration-300">
+            {/* <Link href={`/dashboard/interview/${params.interviewId}/start?interviewId=${params.interviewId}`}> */}
+              <Button className="w-full md:w-auto bg-gray-800 text-gray-300 hover:bg-gray-400 hover:text-gray-900 transition-colors duration-300"
+              onClick={()=>handleGoToInterview(params.interviewId)}>
                 Start Interview
               </Button>
-            </Link>
+            {/* </Link> */}
           </div>
         </div>
       </div>

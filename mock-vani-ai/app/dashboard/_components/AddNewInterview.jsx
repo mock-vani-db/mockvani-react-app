@@ -11,7 +11,7 @@ import {
 import { Button } from "../../../components/ui/button";
 import { Input } from "../../../components/ui/input";
 import { Textarea } from "../../../components/ui/textarea";
-import { chatSession } from '../../../utils/GeminiAIModel';  // Restored Google AI chat session
+import { chatSession } from '../../../utils/GeminiAIModel';
 import { LoaderCircle } from 'lucide-react';
 import { db } from '../../../utils/db';
 import { MockVani } from '../../../utils/schema';
@@ -21,14 +21,14 @@ import moment from 'moment';
 import { useRouter } from 'next/navigation';
 
 function AddNewInterview() {
-    const [openDialog, setOpenDialog] = useState(false);
-    const [jobPosition, setJobPosition] = useState('');
+    const [jobPosition, setJobPosition] = useState('Product Manager');
     const [jobDescription, setJobDescription] = useState('');
     const [jobExperience, setJobExperience] = useState('');
     const [loading, setLoading] = useState(false);
     const [jsonResponse, setJsonResponse] = useState([]);
     const router = useRouter();
     const { user } = useUser();
+    const [openDialog, setOpenDialog] = useState(false);
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -51,10 +51,8 @@ function AddNewInterview() {
             let parsedJsonResponse;
 
             try {
-                console.log("mockJsonResponse:" + mockJsonResponse);
                 // Parse the JSON response and check if it's an array
                 parsedJsonResponse = JSON.parse(mockJsonResponse);
-                console.log(parsedJsonResponse);
                 if (!Array.isArray(parsedJsonResponse)) {
                     throw new Error("Invalid JSON format: Expected an array of questions.");
                 }
@@ -80,7 +78,6 @@ function AddNewInterview() {
                     })
                     .returning({ mockId: MockVani.mockId });
 
-                console.log("Inserted Id:", response);
 
                 if (response) {
                     setOpenDialog(false);
@@ -98,10 +95,10 @@ function AddNewInterview() {
 
     return (
         <div>
-            <div className='p-10 border rounded-lg bg-secondary hover:scale-105 hover:shadow-md cursor-pointer transition-all'
+            <div className='p-10 border rounded-lg bg-gray-300 hover:scale-105 hover:shadow-md cursor-pointer transition-all'
                 onClick={() => setOpenDialog(true)}
             >
-                <h2 className='text-lg text-center'>+ Add New</h2>
+                <h2 className='text-sm font-bold text-center text-gray-800'>+ Add New</h2>
             </div>
             <Dialog open={openDialog} onOpenChange={setOpenDialog}>
                 <DialogTrigger asChild>

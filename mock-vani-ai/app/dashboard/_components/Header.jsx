@@ -12,7 +12,7 @@ function Header() {
   return (
     <header className="bg-primary text-primary-foreground shadow-md">
       <div className="container mx-auto flex justify-between items-center p-4">
-        
+
         {/* Logo */}
         <div className="flex items-center">
           <Image
@@ -29,35 +29,31 @@ function Header() {
         <nav className="hidden md:flex items-center space-x-6">
           <a
             href="/dashboard"
-            className={`hover:text-secondary transition ${
-              path === '/dashboard' ? 'text-secondary font-semibold' : 'text-white'
-            }`}
+            className={`hover:text-secondary transition ${path === '/dashboard' ? 'text-secondary font-semibold' : 'text-white'
+              }`}
           >
             Dashboard
           </a>
           <a
-            href="/dashboard/questions"
-            className={`hover:text-secondary transition ${
-              path === '/dashboard/questions' ? 'text-secondary font-semibold' : 'text-white'
-            }`}
+            href="/dashboard/forum"
+            className={`hover:text-secondary transition ${path === '/dashboard/forum' ? 'text-secondary font-semibold' : 'text-white'
+              }`}
           >
-            Questions
-          </a>
-          <a
-            href="/dashboard/upgrade"
-            className={`hover:text-secondary transition ${
-              path === '/dashboard/upgrade' ? 'text-secondary font-semibold' : 'text-white'
-            }`}
-          >
-            Upgrade
+            Forum
           </a>
           <a
             href="/dashboard/faq"
-            className={`hover:text-secondary transition ${
-              path === '/dashboard/faq' ? 'text-secondary font-semibold' : 'text-white'
-            }`}
+            className={`hover:text-secondary transition ${path === '/dashboard/faq' ? 'text-secondary font-semibold' : 'text-white'
+              }`}
           >
             FAQ
+          </a>
+          <a
+            href="/dashboard/upgrade"
+            className={`hover:text-secondary transition ${path === '/dashboard/upgrade' ? 'text-secondary font-semibold' : 'text-white'
+              }`}
+          >
+            Upgrade
           </a>
         </nav>
 
@@ -77,7 +73,7 @@ function Header() {
       {isMobileMenuOpen && (
         <nav className="md:hidden bg-primary text-white p-4">
           <a href="/dashboard" className="block py-2">Dashboard</a>
-          <a href="/dashboard/questions" className="block py-2">Questions</a>
+          <a href="/dashboard/forum" className="block py-2">Forum</a>
           <a href="/dashboard/upgrade" className="block py-2">Upgrade</a>
           <a href="/dashboard/faq" className="block py-2">FAQ</a>
         </nav>

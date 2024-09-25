@@ -10,7 +10,7 @@ import { UserAnswers } from '../../../../../../utils/schema';
 import { useUser } from '@clerk/nextjs';
 import moment from 'moment';
 
-function RecordAnswerSection({ mockInterviewQuestion, activeQuestionIndex, interviewData }) {
+function RecordAnswerSection({ mockInterviewQuestion, activeQuestionIndex, interviewData, webCamEnabled }) {
     const [userAnswer, setUserAnswer] = useState('');
     const { user } = useUser();
     const [loading, setLoading] = useState(false);
@@ -21,18 +21,19 @@ function RecordAnswerSection({ mockInterviewQuestion, activeQuestionIndex, inter
         results,
         startSpeechToText,
         stopSpeechToText,
+        setResults,
     } = useSpeechToText({
         continuous: true,
         useLegacyResults: false,
     });
 
     useEffect(() => {
-        results.forEach((result) => {
+        results?.forEach((result) => {
             setUserAnswer((prevAns) => prevAns + result.transcript);
         });
     }, [results]);
 
-    const [isWebcamEnabled, setIsWebcamEnabled] = useState(false);
+    const [isWebcamEnabled, setIsWebcamEnabled] = useState({webCamEnabled});
     const { toast } = useToast();
 
     const handleEnableWebcam = () => setIsWebcamEnabled(true);
@@ -45,6 +46,19 @@ function RecordAnswerSection({ mockInterviewQuestion, activeQuestionIndex, inter
             startSpeechToText();
         }
     };
+
+    useEffect(()=>{
+        if(!isRecording&&userAnswer?.length>=10)
+        {
+            UpdateUserAnswer();
+        }
+        if(userAnswer?.length < 10)
+        {
+            setLoading(false);
+            toast('Error while saving your answer, please record again')
+            return;
+        }
+    },[userAnswer])
 
     const UpdateUserAnswer = async () => {
         setLoading(true);
@@ -77,12 +91,14 @@ function RecordAnswerSection({ mockInterviewQuestion, activeQuestionIndex, inter
 
             if (resp) {
                 toast('User answer recorded successfully');
+                setUserAnswer('');
+                setResults([]);
             }
         } catch (error) {
             toast('Error: Failed to send feedback');
         }
 
-        setUserAnswer('');
+        setResults([]);
         setLoading(false);
     };
 
@@ -112,11 +128,9 @@ function RecordAnswerSection({ mockInterviewQuestion, activeQuestionIndex, inter
             </div>
 
             <Button variant="outline" className="my-10" onClick={StartStopRecording}>
-                {isRecording ? <h2 className="text-red-600 flex gap-2"><Mic /> Recording your answer...</h2> : 'Record Answer'}
-            </Button>
-
-            <Button onClick={UpdateUserAnswer} disabled={loading}>
-                Submit Answer
+                {isRecording ? <h2 className="text-red-600 animate-pulse flex gap-2 items-center
+                "><Mic /> Recording your answer...</h2> : 
+                <h2 className='text-primary flex gap-2 items-center'><Mic/>Record Answer</h2>}
             </Button>
         </div>
     );

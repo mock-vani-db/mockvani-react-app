@@ -10,6 +10,7 @@ import { FaMicrophoneSlash, FaPhoneSlash, FaVideo, FaVideoSlash, FaDesktop, FaMi
 import "./InterviewPage.css";
 import { useUser } from "@clerk/nextjs";
 import AudioRecorder from "./_components/AudioRecorder";  // Import the AudioRecorder component
+import path from 'path';
 
 function StartInterviewPage() {
     const [interviewData, setInterviewData] = useState(null);
@@ -64,6 +65,7 @@ function StartInterviewPage() {
     const fetchSpeechFromAPI = async (text) => {
         try {
             setLoading(true);
+            console.log("calling fetch for text"+text)
             const response = await fetch('/api/generateSpeech', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -71,8 +73,16 @@ function StartInterviewPage() {
             });
             const data = await response.json();
             if (data.url) {
+                // const filePath = path.join(process.cwd(), "public", data.url);
+                
                 setAudioUrl(data.url);
                 const audio = new Audio(data.url);
+                console.log(data.url)
+
+                // setAudioUrl(filePath);
+                // const audio = new Audio(filePath);
+                // console.log(filePath)
+
                 audio.play();
                 audio.addEventListener('ended', () => {
                     URL.revokeObjectURL(data.url);

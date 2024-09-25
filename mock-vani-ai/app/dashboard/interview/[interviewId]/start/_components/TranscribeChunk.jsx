@@ -36,10 +36,10 @@ function TranscribeChunk() {
         formData.append('file', blob, 'chunk.webm');
 
         try {
-            const response = await fetch('/api/transcribe-chunk', {
-                method: 'POST',
-                body: formData,
-            });
+            // const response = await fetch('/api/transcribe-chunk', {
+            //     method: 'POST',
+            //     body: formData,
+            // });
 
             const result = await response.json();
             setTranscriptions((prev) => [...prev, result.text]);

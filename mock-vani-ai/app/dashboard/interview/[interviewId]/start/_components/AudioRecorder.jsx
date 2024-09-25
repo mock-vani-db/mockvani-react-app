@@ -47,10 +47,10 @@ const AudioRecorder = ({ onTranscription }) => {
     formData.append("file", chunk, "audio.webm");
 
     try {
-      const response = await fetch("http://localhost:4000/api/transcribe-chunk", {
-        method: "POST",
-        body: formData,
-      });
+      // const response = await fetch("http://localhost:4000/api/transcribe-chunk", {
+      //   method: "POST",
+      //   body: formData,
+      // });
 
       const { text } = await response.json();
       setTranscription((prev) => prev + " " + text);

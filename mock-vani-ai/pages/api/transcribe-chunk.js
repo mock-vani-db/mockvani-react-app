@@ -58,7 +58,7 @@ app.post('/api/transcribe-chunk', upload.single('file'), async (req, res) => {
         try {
             if (fs.existsSync(newFilePath)) {
                 fs.unlinkSync(newFilePath);
-                console.log(`File ${newFilePath} deleted after error.`);
+                // console.log(`File ${newFilePath} deleted after error.`);
             }
         } catch (cleanupError) {
             console.error('Error cleaning up file:', cleanupError);

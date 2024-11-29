@@ -4,6 +4,7 @@ import cors from "cors";
 import rateLimit from "express-rate-limit";
 import formRoutes from "./routes/formRoutes.js";
 import insightsRoutes from "./routes/insightsRoutes.js";
+import path from "path";
 
 const app = express();
 app.use(bodyParser.json());
@@ -24,6 +25,15 @@ app.use(limiter);
 // Use your routes
 app.use("/submit", formRoutes);
 app.use("/insights", insightsRoutes);
+
+// Serve static files from the React client build folder
+const __dirname = path.resolve(); // Get the current directory
+app.use(express.static(path.join(__dirname, "client/build")));
+
+// Catch-all route to serve React app
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
 
 // Use process.env.PORT for Azure compatibility
 const PORT = process.env.PORT || 4000;

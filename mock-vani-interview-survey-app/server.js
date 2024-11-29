@@ -26,9 +26,9 @@ app.use("/submit", formRoutes);
 app.use("/insights", insightsRoutes);
 
 // Serve Static React Files
-app.use(express.static(path.join(__dirname, "client/build")));
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client/build", "index.html"));
+app.use(express.static(path.join(__dirname, "build")));
+app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 const PORT = process.env.PORT || 4000;

@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "mock-vani-server",
   "version": "1.0.0",
   "type": "module",
   "main": "server.js",
@@ -8,12 +8,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": "18.x"
+    "node": ">=18.x"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Mock Vani backend server for handling routes and database operations.",
   "dependencies": {
     "bad-words": "^4.0.0",
     "body-parser": "^1.20.3",
@@ -21,7 +21,6 @@
     "express": "^4.21.1",
     "express-rate-limit": "^7.4.1",
     "mssql": "^11.0.1",
-    "profanity-check": "^0.0.3",
     "xss": "^1.0.15"
   }
 }

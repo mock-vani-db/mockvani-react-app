@@ -1,0 +1,28 @@
+.form-field {
+    margin-bottom: 20px;
+  }
+  
+  .form-field label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151; /* Cool Gray */
+    margin-bottom: 5px;
+  }
+  
+  .form-field input,
+  .form-field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #7a92b4; /* Light Gray */
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .form-field input:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-color: #2563eb; /* Blue */
+    box-shadow: 0 0 4px rgba(37, 99, 235, 0.3);
+  }
+  

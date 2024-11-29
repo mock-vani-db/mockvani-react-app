@@ -1,0 +1,49 @@
+.success-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .modal-content h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2563eb; /* Blue */
+    margin-bottom: 10px;
+  }
+  
+  .modal-content p {
+    font-size: 1rem;
+    color: #374151; /* Cool Gray */
+    margin-bottom: 20px;
+  }
+  
+  .close-button {
+    background: #2563eb; /* Blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .close-button:hover {
+    background: #1e3a8a; /* Darker Blue */
+  }
+  

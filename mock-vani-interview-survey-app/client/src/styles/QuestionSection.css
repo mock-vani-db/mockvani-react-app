@@ -1,0 +1,76 @@
+/* General styling for the question section */
+.question-section {
+    margin-bottom: 30px; /* Adds spacing between sections */
+  }
+  
+  @font-face {
+    font-family: "BauhausStdMedium";
+    src: url("../assets/fonts/BauhausStd-Medium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: "BauhausStdMedium", sans-serif;
+  }
+  
+  .section-title {
+    font-size: 1.5rem; /* Adjusts the title size */
+    font-weight: 600; /* Makes the title bold */
+    color: #374151; /* Cool gray color */
+    margin-bottom: 20px; /* Adds spacing below the title */
+  }
+  
+  /* Grid for input fields */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 20px; /* Adds spacing between fields */
+  }
+  
+  /* Form Field Container */
+  .form-field {
+    display: flex;
+    flex-direction: column; /* Ensures label and input stack vertically */
+  }
+  
+  /* Label styling */
+  .form-field label {
+    font-size: 1rem; /* Standard label font size */
+    font-weight: 600; /* Makes the label bold */
+    margin-bottom: 8px; /* Adds spacing between the label and the input */
+    color: #4b5563; /* Cool gray color */
+  }
+  
+  /* Input styling */
+  .form-input {
+    width: 100%;
+    padding: 10px; /* Internal padding for input */
+    border: 1px solid #d1d5db; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: #2563eb; /* Blue border on focus */
+    box-shadow: 0 0 4px rgba(37, 99, 235, 0.3); /* Light blue glow */
+  }
+  
+  /* Textarea styling */
+  textarea.form-input {
+    resize: vertical; /* Allows resizing vertically only */
+    min-height: 80px; /* Sets a minimum height */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .form-grid {
+      grid-template-columns: 1fr; /* Single column for smaller screens */
+    }
+  
+    .section-title {
+      font-size: 1.25rem; /* Slightly smaller title on small screens */
+    }
+  }
+  

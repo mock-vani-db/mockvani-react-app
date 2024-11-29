@@ -1,0 +1,164 @@
+@font-face {
+    font-family: "BauhausStdMedium";
+    src: url("../assets/fonts/BauhausStd-Medium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "BauhausStdMedium", sans-serif;
+}
+
+.form-page {
+    font-family: BauhausStdMedium;
+    background: linear-gradient(to bottom right, #f3f8ff, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-header {
+    background: #1e40af;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
+}
+
+.form-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #062f72;
+    margin-bottom: 10px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two equal columns */
+    column-gap: 30px;
+    /* Horizontal gap only */
+    row-gap: 0;
+    /* No vertical gap */
+}
+
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.form-actions {
+    text-align: right;
+}
+
+.submit-button {
+    background: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+    background: #1e3a8a;
+}
+
+/* Inline section container */
+.form-section-inline {
+    display: flex;
+    /* Use flexbox for inline arrangement */
+    align-items: center;
+    /* Vertically align label and input */
+    gap: 1px;
+    /* Add spacing between label and input */
+    margin-bottom: 20px;
+    /* Add spacing between rows */
+}
+
+/* Inline label */
+.form-label-inline {
+    font-size: 1rem;
+    /* Standard font size */
+    font-weight: 600;
+    /* Bold label */
+    color: #4b5563;
+    /* Cool gray */
+    min-width: 150px;
+    /* Fixed width for alignment consistency */
+}
+
+/* Inline input */
+.form-input-inline {
+    flex: 1;
+    /* Input takes remaining space */
+    padding: 8px;
+    /* Internal padding */
+    border: 1px solid #4590ff;
+    /* Light gray border */
+    border-radius: 6px;
+    /* Rounded corners */
+    font-size: 1rem;
+    /* Standard font size */
+}
+
+.form-input-inline:focus {
+    outline: none;
+    /* Remove default focus outline */
+    border-color: #2563eb;
+    /* Blue border on focus */
+    box-shadow: 0 0 4px rgba(37, 99, 235, 0.3);
+    /* Light blue glow on focus */
+}
+
+/* Mission Introduction Section */
+.form-intro {
+    margin-bottom: 20px;
+    /* Adds spacing below the intro */
+    padding: 15px;
+    background-color: #f3f8ff;
+    /* Light blue background for emphasis */
+    border-left: 4px solid #2563eb;
+    /* Blue border for visual appeal */
+    border-radius: 8px;
+}
+
+.form-intro p {
+    margin: 0 0 10px 0;
+    /* Spacing between paragraphs */
+    font-size: 1rem;
+    /* Standard font size */
+    color: #374151;
+    /* Cool gray text color */
+    line-height: 1.5;
+    /* Improved readability */
+}

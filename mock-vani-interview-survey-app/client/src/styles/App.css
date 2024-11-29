@@ -1,0 +1,149 @@
+/* Base Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to bottom right, #f3f8ff, #ffffff);
+}
+
+/* App Container */
+.App {
+  /* text-align: center; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styling */
+header {
+  background-color: #1e40af; /* Navy Blue */
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+header p {
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #1e40af; /* Navy Blue */
+  color: white;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Main Form Container */
+main {
+  padding: 40px 20px;
+  flex-grow: 1;
+}
+
+form {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #374151; /* Cool Gray */
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Form Inputs */
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #d1d5db; /* Light Gray */
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #2563eb; /* Blue */
+  box-shadow: 0 0 4px rgba(37, 99, 235, 0.3);
+}
+
+/* Grid for Form Fields */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.grid div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Checkbox */
+label input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+/* Buttons */
+button {
+  background-color: #2563eb; /* Blue */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1e3a8a; /* Darker Blue */
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(37, 99, 235, 0.6);
+}
+
+/* Error Messages */
+.error-message {
+  color: #dc2626; /* Red */
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; /* Stack fields on small screens */
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+  }
+
+  form {
+    padding: 20px;
+  }
+}

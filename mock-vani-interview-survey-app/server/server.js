@@ -25,5 +25,7 @@ app.use(limiter);
 app.use("/submit", formRoutes);
 app.use("/insights", insightsRoutes);
 
-const PORT = 4000;
+// Use process.env.PORT for Azure compatibility
+const PORT = process.env.PORT || 4000;
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
